@@ -1,9 +1,13 @@
+import Body from "./components/Body";
+import Head from "./components/Head";
+
 const App = () => {
   return (
     <div>
-      <p className="">Hi</p>
+      <Head />
+      <Body />
     </div>
   );
-}
+};
 
 export default App;
