@@ -3,14 +3,17 @@ import { FaHome } from "react-icons/fa";
 import { SiYoutubeshorts } from "react-icons/si";
 import { MdSubscriptions } from "react-icons/md";
 import { RiLiveFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="p-5 shadow-lg w-[12rem] text-xl h-screen">
+    <div className="p-5 shadow-lg w-[10rem] text-xl h-svh">
       <ul>
         <li className="flex gap-4 items-center">
-          <FaHome />
-          Home
+          <Link to="/" className="flex items-center gap-4">
+            <FaHome />
+            Home
+          </Link>
         </li>
         <li className="flex gap-4 items-center">
           <SiYoutubeshorts />
@@ -25,6 +28,7 @@ const Sidebar = () => {
           Live
         </li>
       </ul>
+      <hr className="font-bold pt-2"></hr>
       <h1 className="font-bold pt-5">Subscriptions</h1>
       <ul>
         <li>Music</li>
