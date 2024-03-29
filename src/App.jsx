@@ -1,11 +1,8 @@
-
-
-function App() {
-
+const App = () => {
   return (
-    <>
-      <h1>Hi</h1>
-    </>
+    <div>
+      <p className="">Hi</p>
+    </div>
   );
 }
 
