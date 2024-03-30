@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { FaYoutube } from "react-icons/fa";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cacheResults } from "../utils/searchSlice";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [isSuggestions, setIsSuggestions] = useState(false);
+  const searchCache = useSelector((store) => store.search);
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(searchQuery);
-    const timer = setTimeout(() => getSearchSuggestions(), 200);
+    const timer = setTimeout(() => {
+      if (searchCache[searchQuery]) {
+        setSuggestions(searchCache[searchQuery]);
+      } else {
+        getSearchSuggestions();
+      }
+    }, 200);
     return () => {
       clearTimeout(timer);
     };
@@ -22,8 +29,8 @@ const Head = () => {
   const getSearchSuggestions = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
-    console.log(json[1]);
     setSuggestions(json[1]);
+    dispatch(cacheResults({ [searchQuery]: json[1] }));
   };
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
@@ -47,7 +54,7 @@ const Head = () => {
       <div className="col-span-10 px-10">
         <div className="w-full flex items-center">
           <input
-            className="w-1/2 border p-2 pl-3 border-gray-400 rounded-l-full bg-black"
+            className="w-1/2 border p-2 pl-5 border-gray-400 rounded-l-full bg-black"
             type="text"
             placeholder="Search"
             value={searchQuery}
