@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 
 const ButtonList = () => {
   const list = [
     "All",
     "Gaming",
-    "Songs",
+    "Indian Premiere League",
     "Live",
     "Soccer",
     "Football",
@@ -18,12 +18,24 @@ const ButtonList = () => {
     "Rap",
     "Music",
   ];
+
+  const [activeButton, setActiveButton] = useState(0);
+
+  const handleButtonClick = (index) => {
+    setActiveButton(index);
+  };
+
   return (
     <div className="flex items-center">
       <div className="flex overflow-x-auto no-scrollbar">
         <div className="flex">
-          {list.map((list, index) => (
-            <Button key={index} name={list} />
+          {list.map((name, index) => (
+            <Button
+              key={index}
+              name={name}
+              active={activeButton === index}
+              onClick={() => handleButtonClick(index)}
+            />
           ))}
         </div>
       </div>

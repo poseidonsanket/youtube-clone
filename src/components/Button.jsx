@@ -1,10 +1,15 @@
 import React from "react";
 
-const Button = ({name}) => {
+const Button = ({ name, active, onClick }) => {
   return (
-    <div className="overflow-x-auto">
-      <button className="px-4 py-2 m-2 bg-customBackground rounded-lg">{name}</button>
-    </div>
+    <button
+      className={`px-3 py-1 mr-2 rounded-lg ${
+        active ? "bg-white text-black" : "bg-customBackground text-white"
+      }`}
+      onClick={onClick}
+    >
+      {name}
+    </button>
   );
 };
 
