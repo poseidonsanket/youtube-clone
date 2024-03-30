@@ -22,7 +22,7 @@ const WatchPage = () => {
     <div>
       <div className="p-2 m-4 ml-12">
         <iframe
-          className="rounded-lg"
+          className="rounded-lg"  
           width="1300"
           height="700"
           src={"https://www.youtube.com/embed/" + videoId + "?&autoplay=1"}
