@@ -8,6 +8,7 @@ export default {
         customBackground: "#ffffff1a",
         // Define custom text colors
         customText: "#333333",
+        customBg: "#333",
       },
     },
   },
