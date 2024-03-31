@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
+import { useDispatch } from "react-redux";
+import { activateButton } from "../utils/videoSlice";
 
 const ButtonList = () => {
+  const dispatch = useDispatch();
   const list = [
     "All",
     "Gaming",
@@ -21,8 +24,10 @@ const ButtonList = () => {
 
   const [activeButton, setActiveButton] = useState(0);
 
-  const handleButtonClick = (index) => {
+  const handleButtonClick = (index, name) => {
     setActiveButton(index);
+    dispatch(activateButton(name));
+    console.log(name);
   };
 
   return (
@@ -34,7 +39,7 @@ const ButtonList = () => {
               key={index}
               name={name}
               active={activeButton === index}
-              onClick={() => handleButtonClick(index)}
+              onClick={() => handleButtonClick(index, name)}
             />
           ))}
         </div>

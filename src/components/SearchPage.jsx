@@ -21,8 +21,6 @@ const SearchPage = () => {
   const videoResults = searchResults.filter(
     (video) => video.id.kind === "youtube#video"
   );
-  console.log(channels);
-  console.log(videoResults);
   useEffect(() => {
     getResults();
   }, [searchQuery]);
