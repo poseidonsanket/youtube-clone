@@ -46,7 +46,9 @@ const Head = () => {
           onClick={toggleMenuHandler}
           className="ml-2 text-3xl"
         />
-        <p className="flex items-center gap-2 font-bold text-xl">
+        <p
+          className="flex items-center gap-2 font-bold text-xl"
+        >
           <FaYoutube className="text-3xl" />
           YouTube
         </p>

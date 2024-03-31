@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import CommentsContainer from "./CommentsContainer";
 import WatchPageMainContainer from "./WatchPageMainContainer";
 import WatchPageDescription from "./WatchPageDescription";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   const [videoDetails, setVideoDetails] = useState([]);
@@ -24,22 +25,29 @@ const WatchPage = () => {
     getVideoDetails();
   }, []);
   return (
-    <div className="flex flex-col">
-      <div className="p-2 m-4 ml-12">
-        <iframe
-          className="rounded-lg border border-white"
-          width="1300"
-          height="700"
-          src={"https://www.youtube.com/embed/" + videoId + "?&autoplay=1"}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+    <div className="flex flex-col w-full mr-20">
+      <div className="p-2 m-4 ml-12 flex w-full">
+        <div>
+          <iframe
+            className="rounded-lg border border-white"
+            width="1300"
+            height="700"
+            src={"https://www.youtube.com/embed/" + videoId + "?&autoplay=1"}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="w-full">
+          <LiveChat />
+        </div>
       </div>
-      <WatchPageMainContainer videoDetails={videoDetails}/>
-      <WatchPageDescription videoDetails={videoDetails}/>
-      <CommentsContainer />
+      <WatchPageMainContainer videoDetails={videoDetails} />
+      <WatchPageDescription videoDetails={videoDetails} />
+      <div>
+        <CommentsContainer />
+      </div>
     </div>
   );
 };
