@@ -9,8 +9,9 @@ import { GOOGLE_API_KEY } from "../utils/constants";
 const VideoContainer = () => {
   const dispatch = useDispatch();
   const currentCategory = useSelector((store) => store.video.activeButton);
-  console.log(currentCategory);
   const videos = useSelector((store) => store.video.videos);
+  console.log(currentCategory);
+  console.log(videos);
   const getVideos = async () => {
     const data = await fetch(YOUTUBE_VIDEOS_API);
     const json = await data.json();
@@ -21,7 +22,6 @@ const VideoContainer = () => {
       `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&type=video&q=${currentCategory}&key=${GOOGLE_API_KEY}`
     );
     const json = await data.json();
-    console.log(json.items);
     dispatch(addVideos(json.items));
   };
   useEffect(() => {
@@ -34,8 +34,13 @@ const VideoContainer = () => {
   return (
     <div className="flex flex-wrap p-2 m-2 max-h-[820px] overflow-y-auto no-scrollbar h-screen">
       {videos[0] && <AdVideoCard info={videos[0]} />}
-      {videos.map((video) => (
-        <Link key={video.id} to={"/watch?v=" + video.id}>
+      {videos.map((video, index) => (
+        <Link
+          key={index}
+          to={
+            video.id.videoId ? `/watch?v=${video.id.videoId}` : `/watch?v=${video.id}`
+          }
+        >
           <VideoCard info={video} />
         </Link>
       ))}
