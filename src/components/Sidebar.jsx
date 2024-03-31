@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="px-5 shadow-lg w-[16rem] text-xl mx-2 h-fit">
+    <div className="px-5 shadow-lg w-[12rem] text-xl mx-2 h-fit">
       <ul className="p-2">
         <li className="flex gap-4 items-center py-1">
           <Link to="/" className="flex items-center gap-4">

@@ -7,6 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaYoutube } from "react-icons/fa";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
+import { Link } from "react-router-dom";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -46,15 +47,22 @@ const Head = () => {
           onClick={toggleMenuHandler}
           className="ml-2 text-3xl"
         />
-        <p
-          className="flex items-center gap-2 font-bold text-xl"
-        >
-          <FaYoutube className="text-3xl" />
-          YouTube
+        <p className="flex items-center gap-2 font-bold text-xl">
+          <Link to="/" className="flex items-center gap-2">
+            <FaYoutube className="text-3xl" />
+            YouTube
+          </Link>
         </p>
       </div>
       <div className="col-span-10 px-10">
-        <div className="w-full flex items-center">
+        <form
+          className="w-full flex items-center"
+          onSubmit={(e) => {
+            e.preventDefault();
+            const searchUrl = `/search?q=${searchQuery}`;
+            window.location.href = searchUrl;
+          }}
+        >
           <input
             className="w-1/2 border p-2 pl-5 border-gray-400 rounded-l-full bg-black"
             type="text"
@@ -64,15 +72,16 @@ const Head = () => {
               setSearchQuery(e.target.value);
               setIsSuggestions(true);
             }}
-            onBlur={() => setIsSuggestions(false)}
           />
           <button
             className="px-4 py-2 border border-gray-400 rounded-r-full"
             onClick={searchSuggestions}
           >
-            <IoSearch className="text-2xl" />
+            <Link to={`search?q=${searchQuery}`}>
+              <IoSearch className="text-2xl" />
+            </Link>
           </button>
-        </div>
+        </form>
 
         {isSuggestions && (
           <div className="fixed bg-black py-6 px-2 rounded-lg w-[38rem] shadow-lg border border-gray-400 ml-1">
@@ -80,10 +89,16 @@ const Head = () => {
               {suggestions.map((s) => (
                 <li
                   key={s}
+                  onClick={() => setIsSuggestions(false)}
                   className="flex gap-4 shadow-black shadow-md items-center py-1 px-3 hover:bg-gray-900 rounded-lg"
                 >
-                  <IoSearch className="text-xl" />
-                  {s}
+                  <Link
+                    to={"/search?q=" + s}
+                    className="flex items-center gap-2"
+                  >
+                    <IoSearch className="text-xl" />
+                    {s}
+                  </Link>
                 </li>
               ))}
             </ul>

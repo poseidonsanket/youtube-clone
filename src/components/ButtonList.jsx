@@ -26,7 +26,7 @@ const ButtonList = () => {
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center ml-4">
       <div className="flex overflow-x-auto no-scrollbar">
         <div className="flex">
           {list.map((name, index) => (

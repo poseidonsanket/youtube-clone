@@ -17,7 +17,6 @@ const WatchPage = () => {
   const getVideoDetails = async () => {
     const data = await fetch(apiUrl);
     const json = await data.json();
-    console.log(json.items[0].snippet);
     setVideoDetails(json.items[0].snippet);
   };
   useEffect(() => {
