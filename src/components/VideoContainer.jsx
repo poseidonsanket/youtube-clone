@@ -10,8 +10,6 @@ const VideoContainer = () => {
   const dispatch = useDispatch();
   const currentCategory = useSelector((store) => store.video.activeButton);
   const videos = useSelector((store) => store.video.videos);
-  console.log(currentCategory);
-  console.log(videos);
   const getVideos = async () => {
     const data = await fetch(YOUTUBE_VIDEOS_API);
     const json = await data.json();

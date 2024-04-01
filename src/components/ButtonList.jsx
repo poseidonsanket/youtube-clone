@@ -27,7 +27,6 @@ const ButtonList = () => {
   const handleButtonClick = (index, name) => {
     setActiveButton(index);
     dispatch(activateButton(name));
-    console.log(name);
   };
 
   return (
