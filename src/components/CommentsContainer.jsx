@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
 import { addComments } from "../utils/videoSlice";
+import { BiLike } from "react-icons/bi";
+import { BiDislike } from "react-icons/bi";
 
 export const commentsData = [
   {
@@ -78,11 +80,18 @@ export const commentsData = [
 const Comment = ({ data }) => {
   const { name, text, replies } = data;
   return (
-    <div className="flex gap-4 items-center py-2 px-2 bg-gray-700 rounded-lg my-2">
-      <CgProfile className="text-4xl my-2" />
-      <div className="">
-        <p className="font-bold">{name}</p>
-        <p>{text}</p>
+    <div className="flex gap-4 items-center py-2 px-2 bg-gray-700 rounded-lg my-2 w-full">
+      <div className="flex gap-4 justify-between">
+        <CgProfile className="text-4xl my-2" />
+        <div className="flex flex-col">
+          <p className="font-bold">{name}</p>
+          <p>{text}</p>
+          <div className="flex items-center gap-4">
+            <BiLike className="text-xl"/>
+            <BiDislike className="text-xl"/>
+            <p className="text-lg">reply</p>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -131,6 +140,7 @@ const CommentsContainer = () => {
     <div className="m-5 ml-10 p-2 pl-4 w-[1320px]">
       <h1 className="text-2xl font-bold mb-2">Comments:</h1>
       <div className="flex items-center">
+        <CgProfile className="text-5xl mr-2"/>
         <input
           type="text"
           className="rounded-lg w-full bg-customBg px-4 py-2"
