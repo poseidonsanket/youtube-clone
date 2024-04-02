@@ -25,11 +25,11 @@ const SearchPage = () => {
     getResults();
   }, [searchQuery]);
   return (
-    <div className="p-2 m-2 w-full">
+    <div className="p-2 m-2 md:w-full">
       {channels.map((channel, index) => (
         <SearchChannelCard key={index} channels={channel} />
       ))}
-      <hr className="w-full"></hr>
+      <hr className="md:w-full"></hr>
       {videoResults.map((video, index) => (
         <Link to={"/watch?v=" + video.id.videoId} key={index}>
           <SearchVideoCard key={index} videos={video} />

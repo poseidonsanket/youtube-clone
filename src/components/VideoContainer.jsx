@@ -30,8 +30,8 @@ const VideoContainer = () => {
     }
   }, [currentCategory]);
   return (
-    <div className="flex flex-wrap p-2 m-2 max-h-[820px] overflow-y-auto no-scrollbar h-screen">
-      {videos[0] && <AdVideoCard info={videos[0]} />}
+    <div className="md:flex md:flex-wrap md:p-2 md:m-2 md:max-h-[820px] md:overflow-y-auto md:no-scrollbar md:h-screen overflow-y-auto max-h-screen no-scrollbar">
+      {/* {videos[0] && <AdVideoCard info={videos[0]} />} */}
       {videos.map((video, index) => (
         <Link
           key={index}

@@ -8,7 +8,7 @@ const ButtonList = () => {
   const list = [
     "All",
     "Gaming",
-    "Indian Premiere League",
+    "IPL",
     "Live",
     "Soccer",
     "Football",
@@ -30,8 +30,8 @@ const ButtonList = () => {
   };
 
   return (
-    <div className="flex items-center ml-4">
-      <div className="flex overflow-x-auto no-scrollbar">
+    <div className="md:flex md:items-center md:ml-4 ml-4 hidden">
+      <div className="flex overflow-x-auto no-scrollbar md:max-w-screen max-w-screen">
         <div className="flex">
           {list.map((name, index) => (
             <Button

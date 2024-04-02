@@ -41,11 +41,11 @@ const Head = () => {
   };
 
   return (
-    <div className="grid grid-flow-col shadow-lg-black items-center gap-28 p-3">
+    <div className="grid grid-flow-col shadow-lg-black items-center md:gap-28 md:p-3 p-3">
       <div className="flex items-center col-span-1 gap-6">
         <GiHamburgerMenu
           onClick={toggleMenuHandler}
-          className="ml-2 text-3xl"
+          className="md:ml-2 md:text-3xl hidden md:block"
         />
         <p className="flex items-center gap-2 font-bold text-xl">
           <Link to="/" className="flex items-center gap-2">
@@ -84,7 +84,7 @@ const Head = () => {
         </form>
 
         {isSuggestions && (
-          <div className="fixed bg-black py-6 px-2 rounded-lg w-[38rem] shadow-lg border border-gray-400 ml-1">
+          <div className="fixed bg-black py-6 px-2 rounded-lg md:w-[38rem] shadow-lg border border-gray-400 md:ml-1 -ml-5">
             <ul>
               {suggestions.map((s) => (
                 <li
