@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const WatchPageDescription = ({ videoDetails }) => {
   const [showDescription, setShowDescription] = useState(false);
   return (
-    <div className="ml-12  pl-2 mt-6 bg-customBg w-[1300px] rounded-lg">
+    <div className="md:ml-12 pl-2 mt-6 bg-customBg md:w-[1300px] rounded-lg w-[450px] mx-2">
       <p className="px-2 m-2">{videoDetails.title}</p>
       {!showDescription && <p className="px-2 m-2 mt-4" onClick={() => setShowDescription(true)}>
         ...more

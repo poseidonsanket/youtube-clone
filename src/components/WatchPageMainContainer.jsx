@@ -7,11 +7,14 @@ import { FaDownload } from "react-icons/fa6";
 
 const WatchPageMainContainer = ({ videoDetails }) => {
   return (
-    <div className="w-[1300px]">
-      <p className="pl-14 font-bold text-2xl">{videoDetails.title}</p>
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <p className="pl-14 text-5xl pt-2">
+    <div className="md:w-[1300px] w-screen">
+      <div className="md:p-0 md:my-2 pl-4 pr-4 pt-4">
+        <p className="md:pl-14 font-bold text-2xl">{videoDetails.title}</p>
+      </div>
+
+      <div className="md:flex md:items-center md:justify-between p-4 md:p-0">
+        <div className="md:flex md:items-center md:gap-2 flex items-center gap-2 pb-4 md:p-0">
+          <p className="md:pl-14 text-5xl pt-2">
             <CgProfile />
           </p>
           <p className="font-bold mt-2">{videoDetails.channelTitle}</p>
