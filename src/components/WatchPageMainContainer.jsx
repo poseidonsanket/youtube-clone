@@ -7,7 +7,7 @@ import { FaDownload } from "react-icons/fa6";
 
 const WatchPageMainContainer = ({ videoDetails }) => {
   return (
-    <div className="md:w-[1300px] w-screen">
+    <div className="md:w-[1300px] w-[400px]">
       <div className="md:p-0 md:my-2 pl-4 pr-4 pt-4">
         <p className="md:pl-14 font-bold text-2xl">{videoDetails.title}</p>
       </div>
@@ -22,7 +22,7 @@ const WatchPageMainContainer = ({ videoDetails }) => {
             Subscribe
           </button>
         </div>
-        <div className="gap-3 flex -mr-11">
+        <div className="md:gap-3 flex -mr-11 gap-1">
           <button className="bg-gray-800 p-4 rounded-full hover:bg-gray-600 flex items-center gap-2 font-bold">
             <BiLike className="text-xl" />
             Like

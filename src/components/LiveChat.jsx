@@ -34,7 +34,7 @@ const LiveChat = () => {
     <>
       {isChat && (
         <>
-          <div className="w-[450px] mt-10 mx-2 md:ml-2 md:m-0 rounded-lg md:w-full h-[610px] p-2 border bg-customBg overflow-y-auto no-scrollbar flex flex-col-reverse">
+          <div className="w-[400px] mt-10 mx-2 md:ml-2 md:m-0 rounded-lg md:w-full h-[610px] p-2 border bg-customBg overflow-y-auto no-scrollbar flex flex-col-reverse">
             <div>
               {chatMessages.map((chat, index) => (
                 <ChatMessage
@@ -69,7 +69,7 @@ const LiveChat = () => {
       )}
 
       <button
-        className="p-2 bg-customBg rounded-lg mx-2 md:w-full w-[450px] my-5 md:my-0"
+        className="p-2 bg-customBg rounded-lg mx-2 md:w-full w-[400px] my-5 md:my-0"
         onClick={hideChat}
       >
         {isChat ? "Hide Chat" : "Show Chat"}

@@ -24,11 +24,11 @@ const WatchPage = () => {
     getVideoDetails();
   }, []);
   return (
-    <div className="md:flex md:flex-col md:w-full md:mr-20 mt-10 md:mt-0">
+    <div className="md:flex md:flex-col md:w-full md:mr-20 mt-10 md:mt-0 h-screen w-screen">
       <div className="md:p-2 md:m-4 md:ml-12 md:flex md:w-full">
         <div className="md:m-0 ml-4">
           <iframe
-            className="rounded-lg border border-white md:w-[1300px] md:h-[700px] w-[450px] h-[350px]"
+            className="rounded-lg border border-white md:w-[1300px] md:h-[700px] w-[400px] h-[250px]"
             src={"https://www.youtube.com/embed/" + videoId + "?&autoplay=1"}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
