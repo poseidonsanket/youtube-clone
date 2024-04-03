@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SearchVideoCard from "./SearchVideoCard";
 import { Link, useSearchParams } from "react-router-dom";
-import { GOOGLE_API_KEY } from "../utils/constants";
 import SearchChannelCard from "./SearchChannelCard";
 
 const SearchPage = () => {
@@ -10,7 +9,9 @@ const SearchPage = () => {
   const searchQuery = searchParams.get("q");
   const getResults = async () => {
     const data = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&q="${searchQuery}&key=${GOOGLE_API_KEY}`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q="${searchQuery}&key=${
+        import.meta.env.VITE_GOOGLE_API_KEY
+      }`
     );
     const json = await data.json();
     setSearchResults(json.items);

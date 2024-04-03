@@ -6,13 +6,14 @@ import CommentsContainer from "./CommentsContainer";
 import WatchPageMainContainer from "./WatchPageMainContainer";
 import WatchPageDescription from "./WatchPageDescription";
 import LiveChat from "./LiveChat";
-import { GOOGLE_API_KEY } from "../utils/constants";
 
 const WatchPage = () => {
   const [videoDetails, setVideoDetails] = useState([]);
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
-  const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${GOOGLE_API_KEY}`;
+  const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${
+    import.meta.env.VITE_GOOGLE_API_KEY
+  }`;
   const dispatch = useDispatch();
   const getVideoDetails = async () => {
     const data = await fetch(apiUrl);

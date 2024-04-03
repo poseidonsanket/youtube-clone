@@ -4,7 +4,6 @@ import VideoCard, { AdVideoCard } from "./VideoCard";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addVideos } from "../utils/videoSlice";
-import { GOOGLE_API_KEY } from "../utils/constants";
 
 const VideoContainer = () => {
   const dispatch = useDispatch();
@@ -17,7 +16,9 @@ const VideoContainer = () => {
   };
   const getFliteredVideos = async () => {
     const data = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&type=video&q=${currentCategory}&key=${GOOGLE_API_KEY}`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&type=video&q=${currentCategory}&key=${
+        import.meta.env.VITE_GOOGLE_API_KEY
+      }`
     );
     const json = await data.json();
     dispatch(addVideos(json.items));
@@ -36,7 +37,9 @@ const VideoContainer = () => {
         <Link
           key={index}
           to={
-            video.id.videoId ? `/watch?v=${video.id.videoId}` : `/watch?v=${video.id}`
+            video.id.videoId
+              ? `/watch?v=${video.id.videoId}`
+              : `/watch?v=${video.id}`
           }
         >
           <VideoCard info={video} />
