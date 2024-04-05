@@ -34,7 +34,7 @@ const LiveChat = () => {
     <>
       {isChat && (
         <>
-          <div className="w-[400px] mt-10 mx-2 md:ml-2 md:m-0 rounded-lg md:w-full h-[610px] p-2 border bg-customBg overflow-y-auto no-scrollbar flex flex-col-reverse">
+          <div className="w-[400px] mt-10 mx-2 md:ml-2 md:m-0 rounded-lg h-[610px] p-2 border bg-customBg overflow-y-auto no-scrollbar flex flex-col-reverse md:w-1/4 md:mt-4">
             <div>
               {chatMessages.map((chat, index) => (
                 <ChatMessage
@@ -46,20 +46,20 @@ const LiveChat = () => {
             </div>
           </div>
           <form
-            className="ml-2 rounded-lg md:w-full py-2 flex items-center gap-2 w-screen"
+            className="ml-2 rounded-lg md:w-1/4 py-2 flex items-center gap-2 w-screen"
             onSubmit={(e) => {
               e.preventDefault();
             }}
           >
             <input
               type="text"
-              className="border rounded-lg md:w-full p-2 bg-customBg"
+              className="border rounded-lg md:w-[80%] p-2 bg-customBg"
               placeholder="Chat..."
               value={liveMessage}
               onChange={(e) => setLiveMessage(e.target.value)}
             />
             <button
-              className="p-2 bg-customBg rounded-lg"
+              className="p-2 bg-customBg rounded-lg md:w-[20%]"
               onClick={sendComment}
             >
               Send
@@ -69,7 +69,7 @@ const LiveChat = () => {
       )}
 
       <button
-        className="p-2 bg-customBg rounded-lg mx-2 md:w-full w-[400px] my-5 md:my-0"
+        className="p-2 bg-customBg rounded-lg mx-2 md:w-1/4 w-[400px] my-5 md:my-0"
         onClick={hideChat}
       >
         {isChat ? "Hide Chat" : "Show Chat"}

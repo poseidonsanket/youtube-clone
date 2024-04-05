@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 const Body = () => {
   const menuOpen = useSelector((store) => store.app.isMenuOpen);
   return (
-    <div className="flex">
+    <div className="md:flex md:w-screen">
       {menuOpen && <Sidebar />}
       <Outlet/>
     </div>

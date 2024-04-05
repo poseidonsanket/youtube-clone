@@ -41,7 +41,7 @@ const Head = () => {
   };
 
   return (
-    <div className="grid grid-flow-col shadow-lg-black items-center md:gap-28 md:p-3 p-3">
+    <div className="grid grid-flow-col shadow-lg-black items-center md:gap-28 md:p-3 p-3 md:w-screen">
       <div className="flex items-center col-span-1 gap-6">
         <GiHamburgerMenu
           onClick={toggleMenuHandler}
