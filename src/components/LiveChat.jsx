@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ChatMessage from "./ChatMessage";
 import { useDispatch, useSelector } from "react-redux";
-import { addMessage } from "../utils/chatSlice";
+import { addMessage, chatButtonToggle } from "../utils/chatSlice";
 import { generateRandomNames } from "../utils/helper";
 import { makeRandomMessage } from "../utils/helper";
 
 const LiveChat = () => {
-  const [isChat, setIsChat] = useState(true);
+  const isChat = useSelector((store) => store.chat.toggleChat);
   const dispatch = useDispatch();
   const [liveMessage, setLiveMessage] = useState("");
   const chatMessages = useSelector((store) => store.chat.messages);
@@ -24,7 +24,7 @@ const LiveChat = () => {
     };
   });
   const hideChat = () => {
-    setIsChat(!isChat);
+    dispatch(chatButtonToggle());
   };
   const sendComment = () => {
     dispatch(addMessage({ name: "Sanket Dadali", message: liveMessage }));
@@ -34,7 +34,7 @@ const LiveChat = () => {
     <>
       {isChat && (
         <>
-          <div className="w-[400px] mt-10 mx-2 md:ml-2 md:m-0 rounded-lg h-[610px] p-2 border bg-customBg overflow-y-auto no-scrollbar flex flex-col-reverse md:w-1/4 md:mt-4">
+          <div className="w-[400px] mt-10 mx-2 md:ml-2 md:m-0 rounded-lg h-[610px] p-2 border bg-customBg overflow-y-auto no-scrollbar flex flex-col-reverse md:w-full">
             <div>
               {chatMessages.map((chat, index) => (
                 <ChatMessage
@@ -46,7 +46,7 @@ const LiveChat = () => {
             </div>
           </div>
           <form
-            className="ml-2 rounded-lg md:w-1/4 py-2 flex items-center gap-2 w-screen"
+            className="ml-2 rounded-lg md:w-full py-2 flex items-center gap-2 w-screen "
             onSubmit={(e) => {
               e.preventDefault();
             }}
@@ -69,7 +69,7 @@ const LiveChat = () => {
       )}
 
       <button
-        className="p-2 bg-customBg rounded-lg mx-2 md:w-1/4 w-[400px] my-5 md:my-0"
+        className="p-2 bg-customBg rounded-lg mx-2 md:w-full w-[400px] my-5 md:my-0"
         onClick={hideChat}
       >
         {isChat ? "Hide Chat" : "Show Chat"}

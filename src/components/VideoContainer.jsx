@@ -86,7 +86,7 @@ const VideoContainer = () => {
   
   return (
     <div
-      className="md:flex md:flex-wrap md:p-2 md:m-2 md:max-h-[820px] md:overflow-y-auto md:no-scrollbar md:h-screen overflow-y-auto max-h-screen no-scrollbar"
+      className="md:flex md:flex-wrap md:p-2 md:m-2 md:max-h-[820px] md:overflow-y-auto md:no-scrollbar md:h-screen overflow-y-auto max-h-screen no-scrollbar md:w-full"
       ref={mainDivRef}
     >
       {/* {videos[0] && <AdVideoCard info={videos[0]} />} */}
