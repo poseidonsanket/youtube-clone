@@ -90,7 +90,7 @@ const VideoContainer = () => {
       ref={mainDivRef}
     >
       {/* {videos[0] && <AdVideoCard info={videos[0]} />} */}
-      {videos.map((video, index) => (
+      {videos?.map((video, index) => (
         <Link
           key={index}
           to={
