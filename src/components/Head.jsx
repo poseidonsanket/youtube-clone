@@ -28,10 +28,39 @@ const Head = () => {
     };
   }, [searchQuery]);
   const getSearchSuggestions = async () => {
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-    const json = await data.json();
-    setSuggestions(json[1]);
-    dispatch(cacheResults({ [searchQuery]: json[1] }));
+    // const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    // const json = await data.json();
+    // console.log(json);
+    $(document).ready(function () {
+      // Define suggestCallBack function
+      window.suggestCallBack = function (data) {
+        var suggestions = [];
+        $.each(data[1], function (key, val) {
+          suggestions.push({ value: val[0] });
+        });
+        suggestions.length = 10; // Limit suggestions to 5 items
+        // Handle the response
+        const valuesArray = suggestions.map((obj) => obj.value);
+        console.log(valuesArray);
+        setSuggestions(valuesArray);
+        dispatch(cacheResults({ [searchQuery]: valuesArray }));
+      };
+
+      $("#search").autocomplete({
+        source: function (request, response) {
+          $.getJSON(
+            "http://suggestqueries.google.com/complete/search?callback=?",
+            {
+              hl: "en",
+              ds: "yt",
+              jsonp: "suggestCallBack",
+              q: request.term,
+              client: "youtube",
+            }
+          );
+        },
+      });
+    });
   };
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
@@ -64,6 +93,7 @@ const Head = () => {
           }}
         >
           <input
+            id="search"
             className="w-1/2 border p-2 pl-5 border-gray-400 rounded-l-full bg-black"
             type="text"
             placeholder="Search"

@@ -3,6 +3,6 @@ export const YOUTUBE_VIDEOS_API =
   import.meta.env.VITE_GOOGLE_API_KEY;
 
 export const YOUTUBE_SEARCH_API =
-  "http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q=";
+  "http://suggestqueries.google.com/complete/search?hl=en&ds=yt&q=te&output=youtube&q=";
 
 export const LIVE_CHAT_COUNT = 20;
