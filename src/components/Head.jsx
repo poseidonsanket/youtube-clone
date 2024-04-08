@@ -49,7 +49,7 @@ const Head = () => {
       $("#search").autocomplete({
         source: function (request, response) {
           $.getJSON(
-            "http://suggestqueries.google.com/complete/search?callback=?",
+            "https://suggestqueries.google.com/complete/search?callback=?",
             {
               hl: "en",
               ds: "yt",
