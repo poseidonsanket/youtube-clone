@@ -73,7 +73,7 @@ const Head = () => {
         <p className="flex items-center gap-2 font-bold text-xl">
           <Link to="/" className="flex items-center gap-2">
             <FaYoutube className="text-3xl" />
-            YouTube
+            ReactTube
           </Link>
         </p>
       </div>
