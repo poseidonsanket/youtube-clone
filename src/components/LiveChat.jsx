@@ -34,7 +34,7 @@ const LiveChat = () => {
     <>
       {isChat && (
         <>
-          <div className="w-[400px] mt-10 mx-2 md:ml-2 md:m-0 rounded-lg h-[610px] p-2 border bg-customBg overflow-y-auto no-scrollbar flex flex-col-reverse md:w-full">
+          <div className="w-[400px] mt-10 mx-2 md:ml-12 md:m-0 rounded-lg h-[610px] p-2 border bg-customBg overflow-y-auto no-scrollbar flex flex-col-reverse md:w-full md:max-w-[700px] md:mt-10">
             <div>
               {chatMessages.map((chat, index) => (
                 <ChatMessage
@@ -46,7 +46,7 @@ const LiveChat = () => {
             </div>
           </div>
           <form
-            className="ml-2 rounded-lg md:w-full py-2 flex items-center gap-2 w-screen "
+            className="ml-2 rounded-lg md:w-full py-2 flex items-center gap-2 w-screen md:max-w-[700px] md:ml-12"
             onSubmit={(e) => {
               e.preventDefault();
             }}
@@ -69,7 +69,7 @@ const LiveChat = () => {
       )}
 
       <button
-        className="p-2 bg-customBg rounded-lg mx-2 md:w-full w-[400px] my-5 md:my-0"
+        className="p-2 bg-customBg rounded-lg mx-2 md:w-full w-[400px] my-5 md:my-0 md:max-w-[700px] md:ml-12 md:mt-10"
         onClick={hideChat}
       >
         {isChat ? "Hide Chat" : "Show Chat"}

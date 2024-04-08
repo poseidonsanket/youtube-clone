@@ -25,9 +25,9 @@ const WatchPage = () => {
     getVideoDetails();
   }, []);
   return (
-    <div className="md:flex md:flex-col md:w-full md:mr-20 mt-10 md:mt-0 h-screen w-screen">
-      <div className="md:p-2 md:m-4 md:ml-12 md:w-full md:flex">
-        <div className="md:m-0 ml-4">
+    <div className="md:flex md:flex-col md:w-screen md:mr-20 mt-10 md:mt-0 h-screen w-screen">
+      <div className="md:p-2 md:m-4 md:ml-12 md:w-screen md:flex">
+        <div className="md:m-0 ml-4 md:w-screen">
           <iframe
             className="rounded-lg border border-white md:w-[1300px] md:h-[700px] w-[400px] h-[250px]"
             src={"https://www.youtube.com/embed/" + videoId + "?&autoplay=1"}
@@ -37,14 +37,14 @@ const WatchPage = () => {
             allowFullScreen
           ></iframe>
         </div>
-        <div className="md:w-full">
-          <LiveChat />
-        </div>
       </div>
       <WatchPageMainContainer videoDetails={videoDetails} />
       <WatchPageDescription videoDetails={videoDetails} />
 
       <div>
+        <div className="md:w-full">
+          <LiveChat />
+        </div>
         <CommentsContainer />
       </div>
     </div>
