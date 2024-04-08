@@ -5,7 +5,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { FaYoutube } from "react-icons/fa";
-import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
 import { Link } from "react-router-dom";
 
@@ -28,18 +27,13 @@ const Head = () => {
     };
   }, [searchQuery]);
   const getSearchSuggestions = async () => {
-    // const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-    // const json = await data.json();
-    // console.log(json);
     $(document).ready(function () {
-      // Define suggestCallBack function
       window.suggestCallBack = function (data) {
         var suggestions = [];
         $.each(data[1], function (key, val) {
           suggestions.push({ value: val[0] });
         });
-        suggestions.length = 10; // Limit suggestions to 5 items
-        // Handle the response
+        suggestions.length = 10;
         const valuesArray = suggestions.map((obj) => obj.value);
         console.log(valuesArray);
         setSuggestions(valuesArray);
