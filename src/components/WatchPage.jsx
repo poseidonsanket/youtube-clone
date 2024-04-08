@@ -41,7 +41,7 @@ const WatchPage = () => {
       <WatchPageMainContainer videoDetails={videoDetails} />
       <WatchPageDescription videoDetails={videoDetails} />
 
-      <div>
+      <div className="md:flex md:flex-col">
         <div className="md:w-full">
           <LiveChat />
         </div>

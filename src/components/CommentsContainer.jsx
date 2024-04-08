@@ -191,7 +191,7 @@ const CommentsContainer = () => {
   };
 
   return (
-    <div className="md:m-5 md:ml-10 p-2 pl-4 md:w-[1320px] w-[400px] mx-4">
+    <div className="md:m-5 md:ml-10 p-2 pl-4 md:w-[1320px] w-[400px]">
       <h1 className="text-2xl font-bold mb-2">Comments:</h1>
       <div className="flex items-center">
         <CgProfile className="text-5xl mr-2" />
