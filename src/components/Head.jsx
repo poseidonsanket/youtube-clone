@@ -35,7 +35,6 @@ const Head = () => {
         });
         suggestions.length = 10;
         const valuesArray = suggestions.map((obj) => obj.value);
-        console.log(valuesArray);
         setSuggestions(valuesArray);
         dispatch(cacheResults({ [searchQuery]: valuesArray }));
       };

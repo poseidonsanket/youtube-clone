@@ -17,7 +17,6 @@ const VideoContainer = () => {
     const json = await data.json();
     dispatch(addVideos(json.items));
     dispatch(addPageToken(json.nextPageToken));
-    console.log(pageToken);
   };
   const getFliteredVideos = async () => {
     const data = await fetch(
@@ -35,6 +34,7 @@ const VideoContainer = () => {
       mainDivRef.current.scrollHeight - mainDivRef.current.scrollTop ===
         mainDivRef.current.clientHeight
     ) {
+      console.log("reached end of div");
       if (currentCategory === null || currentCategory === "All") {
         addMoreVideos();
       } else {
@@ -44,7 +44,6 @@ const VideoContainer = () => {
   };
 
   const addMoreFilteredVideos = async () => {
-    console.log("filtered");
     const data = await fetch(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&type=video&q=${currentCategory}&key=${
         import.meta.env.VITE_GOOGLE_API_KEY
@@ -55,7 +54,6 @@ const VideoContainer = () => {
   };
 
   const addMoreVideos = async () => {
-    console.log("All");
     const data = await fetch(
       `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=50&key=${
         import.meta.env.VITE_GOOGLE_API_KEY
