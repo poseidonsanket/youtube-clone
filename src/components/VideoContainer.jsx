@@ -31,7 +31,7 @@ const VideoContainer = () => {
   const handleScroll = () => {
     if (
       mainDivRef.current &&
-      mainDivRef.current.scrollHeight - mainDivRef.current.scrollTop ===
+      Math.round(mainDivRef.current.scrollHeight - mainDivRef.current.scrollTop) ===
         mainDivRef.current.clientHeight
     ) {
       console.log("reached end of div");
