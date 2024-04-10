@@ -34,7 +34,6 @@ const VideoContainer = () => {
       Math.round(mainDivRef.current.scrollHeight - mainDivRef.current.scrollTop) ===
         mainDivRef.current.clientHeight
     ) {
-      console.log("reached end of div");
       if (currentCategory === null || currentCategory === "All") {
         addMoreVideos();
       } else {
@@ -84,10 +83,9 @@ const VideoContainer = () => {
   
   return (
     <div
-      className="md:flex md:flex-wrap md:p-2 md:m-2 md:max-h-[820px] md:overflow-y-auto md:no-scrollbar md:h-screen overflow-y-auto max-h-screen no-scrollbar md:w-full"
+      className="md:flex md:flex-wrap md:p-2 md:m-2 md:max-h-screen md:overflow-y-auto md:no-scrollbar md:h-screen overflow-y-auto max-h-screen no-scrollbar md:w-full"
       ref={mainDivRef}
     >
-      {/* {videos[0] && <AdVideoCard info={videos[0]} />} */}
       {videos?.map((video, index) => (
         <Link
           key={index}
